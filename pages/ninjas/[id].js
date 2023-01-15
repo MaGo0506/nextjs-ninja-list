@@ -1,5 +1,5 @@
-import Home from "@/pages";
 import Head from "next/head";
+import Link from "next/link";
 
 export const getStaticPaths = async () => {
     const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -40,6 +40,9 @@ const Details = ({ninja}) => {
                 <p>{ninja.email}</p>
                 <p>{ninja.website}</p>
                 <p>{ninja.address.city}</p>
+                <Link href={`/ninjas/${ninja.id}/posts`}>
+                    {ninja.username}'s Posts
+                </Link>
             </div>
         </>
     );
